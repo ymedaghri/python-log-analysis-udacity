@@ -8,14 +8,12 @@ Python command line reporting tool that displays 3 successive set of reports.
 ![Screenshot](screenshot.png)
 
 # Basic Setup
-1. Create two views in the 'news database' 
-
+1. Create two views in the 'news database' ([views](#views-creation)) 
 2. Run the program using the command line
 	python news.py 
-	
 3. Tadaaaaa
 
-## Views
+## Views Creation
 	create view log_errors as select  date_trunc('day',time) as time, count(*) as requests from log  where status!='200 OK' group by 1;
 	create view log_success as select  date_trunc('day',time) as time, count(*) as requests from log  where status='200 OK' group by 1;
 
